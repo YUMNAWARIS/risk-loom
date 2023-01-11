@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block section %}
+<section
+    class="d-flex align-items-center position-relative bg-dark bg-size-cover bg-position-center min-vh-100 overflow-hidden pt-6 pb-lg-5"
+    style="background-image: url(img/demo/presentation/intro/bg.jpg);">
+    <div class="container-fluid pt-4 pb-5 py-lg-5">
+        <div class="row align-items-center py-3">
+            <div class="col-xl-6 col-lg-5 d-flex justify-content-end offset-md-3">
+                <div class="pt-2 mx-auto mb-5 mb-lg-0 ms-lg-0 me-xl-7 text-center text-lg-start"
+                    style="max-width: 495px;">
+                    <h1 class="display-4 text-light pb-2"><span class="fw-light">Cubix Stock Services</span>
+                    </h1>
+                    <p class="h4 fw-light text-light opacity-70 line-height-base">Share Your Views With US
+                    </p>
+                    <form>
+
+                        <div class="mb-3 text-light">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+
+                        <div class="mb-3 text-light">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+
+                        <div class="mb-3 text-light">
+                            <label class="form-label">Message</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

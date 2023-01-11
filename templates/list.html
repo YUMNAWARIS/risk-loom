@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block list %}
+<li class="nav-item">
+  <a class="nav-link active" href="listcom">Companies</a>
+</li>
+{% endblock %}
+{% block section %}
+<div class="container-fluid">
+
+  <!-- Navbar -->
+  <div class="row">
+
+  </div>
+  <!-- Nav end -->
+
+
+
+
+  <br>
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <div class="col-md-5 offset-md-2">
+        <h3>List Of Available Companies</h3>
+      </div>
+
+
+      <nav class="navbar navbar-light bg-light" >
+        <div class="container-fluid">
+          <form class="d-flex" method=POST action="{% url 'searchedStock' %}">
+            {% csrf_token %}
+            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="searched">
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+      
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Symbol</th>
+          <th scope="col">Company Name</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for c in col %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{c.Sym}}</td>
+          <td>{{c.Name}}</td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+  </div>
+  <!-- Table end -->
+
+
+
+  <!-- footer-->
+  <div class="row">
+
+  </div>
+  <!-- footer end -->
+
+{{ s }}
+</div>
+
+{% endblock %}
