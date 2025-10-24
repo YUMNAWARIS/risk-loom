@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    container_name: risk-loom-db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: risk-loom
+      POSTGRES_PASSWORD: risk-loom
+    volumes:
+      - risk-loom-db-data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: risk-loom-pgadmin
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: yumnaahwari@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: risk-loom
+    volumes:
+      - risk-loom-pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  risk-loom-db-data:
+  risk-loom-pgadmin-data:
