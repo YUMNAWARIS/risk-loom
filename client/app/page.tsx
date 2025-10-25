@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { isLoggedIn } from "@/lib/auth";
 import {
   AppBar,
   Toolbar,
@@ -22,6 +23,7 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 export default function Home() {
+  const router = useRouter();
   const currentYear = new Date().getFullYear();
   useEffect(() => {
     const previous = document.documentElement.style.scrollBehavior;
@@ -31,10 +33,14 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    if (isLoggedIn()) {
+      router.replace("/dashboard");
+    }
+  }, [router]);
+
   return (
     <Box sx={{ bgcolor: "background.default", color: "text.primary" }}>
-      {/* Header / Navbar */}
-      <Navbar />
 
       {/* Hero Section */}
       <Box id="home" sx={{
